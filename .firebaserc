@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "my-firebase-app-2fece": {
+      "hosting": {
+        "firebase-three": [
+          "my-firebase-app-2fece"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "my-firebase-app-2fece"
+  }
+}
