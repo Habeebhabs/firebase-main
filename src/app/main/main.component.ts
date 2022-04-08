@@ -26,28 +26,15 @@ export class MainComponent implements OnInit {
       this.elementData = [...response.docs.map((item:any) => {
         return { ...item.data(), id:item.id }
       })];
-      // setTimeout(() => {
-      //   const elements = document.querySelectorAll('.col-12');
-      //   let sample = `<p>
-      //                     frfrfgtgt
-      //                     <u>hi</u>
-      //                     <button>get</button>
-      //                   </p>`
-      //   this.elementData.forEach((item) => {
-      //     if(item.code == '<strong>Habeeb</strong>'){
-      //       sample = item.code;
-      //     }
-      //   })
-      //   const parser = new DOMParser();
-      //   const out = parser.parseFromString(sample, 'text/html');
-      //   elements.forEach((item) => {
-      //     item.innerHTML = out.body.innerHTML ;
-      //   });
-      //   this.elementData.forEach((item) => {
-      //     console.log(item.code)
-      //   })
-      //   this.status = false;
-      // })
+      setTimeout(() => {
+        const elements = document.querySelectorAll('.col-12');
+        this.elementData.forEach((item) => {
+          const sample = item.code;
+          const parser = new DOMParser();
+          const out = parser.parseFromString(sample,'text/html');
+          elements[this.elementData.indexOf(item)].innerHTML = out.body.innerHTML;
+        })
+      })
       if(this.elementData.length) this.status = false;
     })
     .catch((err) => {
